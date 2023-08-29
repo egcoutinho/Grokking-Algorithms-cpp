@@ -30,7 +30,7 @@ default: $(MY_PROG)
 
 all: clean $(MY_PROG)
 
-$(MY_PROG): demo.o GrokkingAlgorithm.o UtilsGrokkingAlgo.o
+$(MY_PROG): demo.o GrokkingAlgorithms.o UtilsGrokkingAlgo.o
 	@$(MD) $(BIN_DIR)
 	$(CXX) -o $(BIN_DIR)/$@ $(OBJ_DIR)/*.o
 

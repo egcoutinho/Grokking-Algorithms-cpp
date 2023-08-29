@@ -1,6 +1,6 @@
 #include <climits>
 #include <cstring>
-#include "GrokkingAlgorithm.h"
+#include "GrokkingAlgorithms.h"
 
 using namespace std;
 

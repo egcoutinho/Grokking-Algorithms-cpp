@@ -27,7 +27,7 @@ public:
 	void runDemoChapter_9();
 
 private:
-	int BinarySearch_Ch1(const int *ascend_array, int num, int val);
+	int Pesquisa_Binaria_Ch1(const int *ascend_array, int num, int val);
 	void SelectionSort_Ch2(std::list<int> lst, std::list<int> &sortedLst);
 	int Recursion_Ch3(int val);
 	int MaxSquare_Ch4(int w, int h);

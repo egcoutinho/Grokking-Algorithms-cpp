@@ -1,6 +1,6 @@
 #include <cstring>
 #include <climits>
-#include "GrokkingAlgorithm.h"
+#include "GrokkingAlgorithms.h"
 #include "UtilsGrokkingAlgo.h"
 
 using namespace std;
@@ -16,7 +16,7 @@ GrokkingAlgorithm::~GrokkingAlgorithm()
 }
 
 // ******************* CHAPTER 1
-int GrokkingAlgorithm::BinarySearch_Ch1(const int *lista, int num, int item)
+int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int num, int item)
 {
 	/* Binary Search
 	*
@@ -71,7 +71,7 @@ void GrokkingAlgorithm::runDemoChapter_1()
 	int val = 0;
 	cin >> val;
 
-	cout << "search result: " << GrokkingAlgorithm::BinarySearch_Ch1(array, 12, val) << endl << endl;
+	cout << "search result: " << GrokkingAlgorithm::Pesquisa_Binaria_Ch1(array, 12, val) << endl << endl;
 
 	return;
 }
