@@ -18,9 +18,11 @@ MD = mkdir -p
 #VPATH = obj src include
 # Search for .c files in "src" directory; .h files in "include" directory
 # The pattern matching character '%' matches filename without the extension
-vpath %.cpp src
-vpath %.c src
-vpath %.h include
+#vpath %.cpp src
+#vpath %.c src
+#vpath %.h include
+VPATH = $(BIN_DIR)
+#vpath $(MY_PROG) $(BIN_DIR)
 vpath %.o $(OBJ_DIR)
 #vpath %.d $(DEPDIR)
 

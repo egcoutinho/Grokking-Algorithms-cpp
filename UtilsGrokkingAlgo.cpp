@@ -45,8 +45,6 @@ int InBinarySearch(const int *array, int pos1, int pos2, int val)
 	return pos;
 }
 
-
-
 void SelectionSort(int *array, int num)
 {
 	int val = INT_MAX;
@@ -75,8 +73,6 @@ void SelectionSort(int *array, int num)
 
 	return;
 }
-
-
 
 void Merge(int *array, int num, int pos)
 {
@@ -107,7 +103,6 @@ void Merge(int *array, int num, int pos)
 	free(newArray);
 	return;
 }
-
 
 std::map<std::string, int>::iterator find_lowest_cose_node(std::map < std::string, int> &cost, std::map<std::string, int> &counter)
 {

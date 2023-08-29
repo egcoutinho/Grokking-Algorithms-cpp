@@ -56,7 +56,7 @@ template<typename T> void PrintData(const T &data)
 template<typename T> void PrintData(T *data, int num)
 {
 	int cnt = 0;
-	for (; cnt != num; ++cnt)
+	for (; cnt != num; cnt++)
 		std::cout << data[cnt] << ", ";
 	std::cout << std::endl;
 	return;
