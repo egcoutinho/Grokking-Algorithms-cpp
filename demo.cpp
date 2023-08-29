@@ -17,5 +17,5 @@ int main()
 	ga.runDemoChapter_8();
 	ga.runDemoChapter_9();
 
-	return 0;
+	return EXIT_SUCCESS;
 }
