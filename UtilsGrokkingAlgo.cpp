@@ -1,11 +1,15 @@
+#include <climits>
+#include <cstring>
 #include "GrokkingAlgorithm.h"
+
+using namespace std;
 
 //template<typename T> void PrintData(const T &data)
 //{
 //	auto iter = data.begin();
 //	while (iter != data.end())
-//		std::cout << *iter++ << ", ";
-//	std::cout << std::endl;
+//		cout << *iter++ << ", ";
+//	cout << endl;
 //
 //	return;
 //}
@@ -14,7 +18,7 @@
 //{
 //	int cnt = 0;
 //	for (; cnt != num; ++cnt)
-//		std::cout << data[cnt] << ", ";
+//		cout << data[cnt] << ", ";
 //
 //	return;
 //}
@@ -30,10 +34,12 @@ int InBinarySearch(const int *array, int pos1, int pos2, int val)
 	{
 		if (val == array[j])
 			pos = j;
-		else if (val < array[j])
-			pos = InBinarySearch(array, pos1, j - 1, val);
-		else if (val > array[j])
-			pos = InBinarySearch(array, j + 1, pos2, val);
+		else 
+			if (val < array[j]) 
+				pos = InBinarySearch(array, pos1, j - 1, val);
+		else 
+			if (val > array[j])
+				pos = InBinarySearch(array, j + 1, pos2, val);
 	}
 
 	return pos;
@@ -44,7 +50,7 @@ int GrokkingAlgorithm::BinarySearch_Ch1(const int *ascend_array, int num, int va
 	/* Binary Search
 	*
 	*  Params:
-	*		- ascend_array£¬ int pointer for an ascend-sorted array
+	*		- ascend_arrayï¿½ï¿½ int pointer for an ascend-sorted array
 	*		- num, length of input array
 	*		- val, value to be searched.
 	*
@@ -67,10 +73,10 @@ int GrokkingAlgorithm::BinarySearch_Ch1(const int *ascend_array, int num, int va
 			pos = j;
 			break;
 		}
-		else if (val < ascend_array[j])
-			pos2 = j - 1;
-		else if (val > ascend_array[j])
-			pos1 = j + 1;
+		else 
+			if (val < ascend_array[j]) pos2 = j - 1;
+		else 
+			if (val > ascend_array[j]) pos1 = j + 1;
 	}
 
 	return pos;
@@ -191,13 +197,13 @@ void GrokkingAlgorithm::SelectionSort_Ch2(std::list<int> lst, std::list<int> &so
 	int *b = (int *)malloc(sizeof(int) * 5);
 	Ch2_SelectionSortInArray(a, b, 5);
 
-	std::cout << "Original List:" << std::endl;
+	cout << "Original List:" << endl;
 	for (int i = 0; i != 5; ++i)
-	std::cout << a[i] << "\t";
-	std::cout << std::endl << "Sorted List:" << std::endl;
+	cout << a[i] << "\t";
+	cout << endl << "Sorted List:" << endl;
 	for (int i = 0; i != 5; ++i)
-	std::cout << b[i] << "\t";
-	std::cout << std::endl;
+	cout << b[i] << "\t";
+	cout << endl;
 	free(b);
 	*/
 
@@ -208,16 +214,16 @@ void GrokkingAlgorithm::SelectionSort_Ch2(std::list<int> lst, std::list<int> &so
 
 	int a[5] = { 5, 2, 6, 3, 8 };
 
-	std::cout << "Original List:" << std::endl;
+	cout << "Original List:" << endl;
 	for (int i = 0; i != 5; ++i)
-	std::cout << a[i] << "\t";
+	cout << a[i] << "\t";
 
 	SelectionSort(a, 5);
 
-	std::cout << std::endl << "Sorted List:" << std::endl;
+	cout << endl << "Sorted List:" << endl;
 	for (int i = 0; i != 5; ++i)
-	std::cout << a[i] << "\t";
-	std::cout << std::endl;
+	cout << a[i] << "\t";
+	cout << endl;
 	*/
 
 	return;
@@ -486,8 +492,8 @@ void GrokkingAlgorithm::HashTable_Ch5(std::map<std::string, int> &mapping)
 
 	while (true)
 	{
-		std::cout << "Input Name to Search: ('q' to quit)" << std::endl;
-		std::cin >> input;
+		cout << "Input Name to Search: ('q' to quit)" << endl;
+		cin >> input;
 
 		if (input == "q")
 			break;
@@ -496,21 +502,21 @@ void GrokkingAlgorithm::HashTable_Ch5(std::map<std::string, int> &mapping)
 
 		if (iter == mapping.end())
 		{
-			std::cout << "No such name. \n Will you add this one? (Y/N)" << std::endl;
-			std::cin >> flag;
+			cout << "No such name. \n Will you add this one? (Y/N)" << endl;
+			cin >> flag;
 			if (flag == 'Y')
 			{
-				std::cout << "Please input the age:" << std::endl;
-				std::cin >> age;
+				cout << "Please input the age:" << endl;
+				cin >> age;
 
 				mapping.insert(std::pair<std::string, int>(input, age));
-				std::cout << "Done!" << std::endl;
+				cout << "Done!" << endl;
 			}
-			std::cout << std::endl;
+			cout << endl;
 			continue;
 		}
 		else
-			std::cout << "Age: " << iter->second << std::endl << std::endl;
+			cout << "Age: " << iter->second << endl << endl;
 	}
 
 	return;

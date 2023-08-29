@@ -1,144 +1,152 @@
 #include "GrokkingAlgorithm.h"
 
-GrokkingAlgorithm::GrokkingAlgorithm(){}
+using namespace std;
 
-GrokkingAlgorithm::~GrokkingAlgorithm(){}
+GrokkingAlgorithm::GrokkingAlgorithm()
+{
+
+}
+
+GrokkingAlgorithm::~GrokkingAlgorithm()
+{
+
+}
 
 void GrokkingAlgorithm::runDemoChapter_1()
 {
 	// ========= demo Chapter 1 -- Binary Search =========
 	int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 1 -- Binary Search " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		 <<   " Demo for Chapter 1 -- Binary Search " << endl
+		 <<   " =========================" << endl;
 
-	std::cout << "Original Data : " << std::endl;
+	cout << "Original Data : " << endl;
 	PrintData(array, 12);
 
-	std::cout << "Input an integer for search: " << std::endl;
+	cout << "Input an integer for search: " << endl;
 
 	int val = 0;
-	std::cin >> val;
+	cin >> val;
 
-	std::cout << "search result: " << GrokkingAlgorithm::BinarySearch_Ch1(array, 12, val) << std::endl << std::endl;
+	cout << "search result: " << GrokkingAlgorithm::BinarySearch_Ch1(array, 12, val) << endl << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_2()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 2 -- Selection Sort " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		 << " Demo for Chapter 2 -- Selection Sort " << endl
+		 << " =========================" << endl;
 
 	std::list<int> lst = { 5, 3, 6, 2, 10 };
 	std::list<int> sortedLst;
 
 	GrokkingAlgorithm::SelectionSort_Ch2(lst, sortedLst);
 
-	std::cout << "Original List:" << std::endl;
+	cout << "Original List:" << endl;
 	PrintData(lst);
 
-	std::cout << "Sorted List:" << std::endl;
+	cout << "Sorted List:" << endl;
 	PrintData(sortedLst);
-	std::cout << std::endl;
+	cout << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_3()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 3 -- Recursion " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 3 -- Recursion " << endl
+		<< " =========================" << endl;
 
 	int num;
-	std::cout << "Input an integer for Fibonacci number generation(no more than 20 is preferable):  ";
-	std::cin >> num;
-	std::cout << std::endl << "Fibonacci (" << num << ") is " << GrokkingAlgorithm::Recursion_Ch3(num) << std::endl << std::endl;
+	cout << "Input an integer for Fibonacci number generation(no more than 20 is preferable):  ";
+	cin >> num;
+	cout << endl << "Fibonacci (" << num << ") is " << GrokkingAlgorithm::Recursion_Ch3(num) << endl << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_4()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 4 -- Quick Sort " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 4 -- Quick Sort " << endl
+		<< " =========================" << endl;
 
 	/* Max Square */
-	std::cout << std::endl << "solution for Max Square " << std::endl;
-	std::cout << "Input two integers for width and height of a rectangle: " << std::endl;
+	cout << endl << "solution for Max Square " << endl;
+	cout << "Input two integers for width and height of a rectangle: " << endl;
 
 	int  w, h;
-	std::cin >> w >> h;
-	std::cout << "side length of the max square: " << GrokkingAlgorithm::MaxSquare_Ch4(w, h) << std::endl;
+	cin >> w >> h;
+	cout << "side length of the max square: " << GrokkingAlgorithm::MaxSquare_Ch4(w, h) << endl;
 
 	/* Sum */
-	std::cout << std::endl << "solution for Sum " << std::endl;
+	cout << endl << "solution for Sum " << endl;
 
 	int array[9] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	std::cout << "Original Data: ";
+	cout << "Original Data: ";
 	PrintData(array, 9);
 
-	std::cout << "The sum is: " << GrokkingAlgorithm::Sum_Ch4(array, 9) << std::endl;
+	cout << "The sum is: " << GrokkingAlgorithm::Sum_Ch4(array, 9) << endl;
 
 	/* Quick Sort */
-	std::cout << std::endl << "solution for Quick Sort " << std::endl;
+	cout << endl << "solution for Quick Sort " << endl;
 	int unorderedArray[11] = { 25, 6, 1, 3, 8, 10, 52, 30, 15, 0, 55 };
-	std::cout << "Original Data: " << std::endl;
+	cout << "Original Data: " << endl;
 	PrintData(unorderedArray, 11);
 
 	GrokkingAlgorithm::QuickSort_Ch4(unorderedArray, 11);
-	std::cout << "ordered array:" << std::endl;
+	cout << "ordered array:" << endl;
 	PrintData(unorderedArray, 11);
 
 	/* Merge Sort */
-	std::cout << std::endl << "solution for Merge Sort " << std::endl;
+	cout << endl << "solution for Merge Sort " << endl;
 	int unorderedArray2[12] = { 5, 6, 100, 1, 3, 8, 10, 52, 30, 15, 0, 55 };
-	std::cout << "Original Data: " << std::endl;
+	cout << "Original Data: " << endl;
 	PrintData(unorderedArray2, 12);
 
 	GrokkingAlgorithm::MergeSort_Ch4(unorderedArray2, 12);
-	std::cout << "ordered array:" << std::endl;
+	cout << "ordered array:" << endl;
 	PrintData(unorderedArray2, 12);
-	std::cout << std::endl;
+	cout << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_5()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 5 -- Hash Table " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 5 -- Hash Table " << endl
+		<< " =========================" << endl;
 
-	std::cout << "Initialize a map | <name, age>" << std::endl;
+	cout << "Initialize a map | <name, age>" << endl;
 
 	std::map<std::string, int> mapping{ { "Allen", 32 }, { "Bob", 22 }, { "Alice", 28 } };
 	std::map < std::string, int>::iterator iter;
 
-	std::cout << "Map is initialized as follows:" << std::endl;
+	cout << "Map is initialized as follows:" << endl;
 	for (iter = mapping.begin(); iter != mapping.end(); ++iter)
-		std::cout << "Name: " << iter->first << ",\tAge: " << iter->second << std::endl;
+		cout << "Name: " << iter->first << ",\tAge: " << iter->second << endl;
 
 	GrokkingAlgorithm::HashTable_Ch5(mapping);
-	std::cout << "\nAll in map are as follows:" << std::endl;
+	cout << "\nAll in map are as follows:" << endl;
 	for (iter = mapping.begin(); iter != mapping.end(); ++iter)
-		std::cout << "Name: " << iter->first << ",\tAge: " << iter->second << std::endl;
-	std::cout << std::endl;
+		cout << "Name: " << iter->first << ",\tAge: " << iter->second << endl;
+	cout << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_6()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 6 -- Breadth First Search (BFS) " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 6 -- Breadth First Search (BFS) " << endl
+		<< " =========================" << endl;
 
-	std::cout << "initialize a personal relationship network by hash map" << std::endl;
+	cout << "initialize a personal relationship network by hash map" << endl;
 	std::map<std::string, std::vector<std::string>> relationNet{ { "you", { "alice", "bob", "claire" } },
 	{ "bob", { "anuj", "peggy" } }, { "alice", { "peggy" } }, { "claire", { "thom", "jonny" } },
 	{ "anuj", {} }, { "peggy", {} }, { "thom", { "you" } }, { "jonny", {} } };
@@ -149,18 +157,18 @@ void GrokkingAlgorithm::runDemoChapter_6()
 	std::pair<bool, std::string> ret = GrokkingAlgorithm::BreadthFirstSearch_Ch6(relationNet, seller);
 
 	if (ret.first)
-		std::cout << "FOUND!" << std::endl << ret.second << " is a seller!" << std::endl << std::endl;
+		cout << "FOUND!" << endl << ret.second << " is a seller!" << endl << endl;
 	else
-		std::cout << "Not FOUND !" << std::endl << std::endl;
+		cout << "Not FOUND !" << endl << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_7()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 7 -- Dijkstra Algorithm " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 7 -- Dijkstra Algorithm " << endl
+		<< " =========================" << endl;
 
 	std::map<std::string, std::map<std::string, int>> graph1, graph2, graph3, graph4, graph5;
 
@@ -224,43 +232,43 @@ void GrokkingAlgorithm::runDemoChapter_7()
 	std::vector<std::string>::iterator iter;
 
 	dims = ret1.first.size();
-	std::cout << "Shortest route:" << std::endl;
+	cout << "Shortest route:" << endl;
 	for (iter = ret1.first.begin(); i < dims - 1; ++i, ++iter)
-		std::cout << *iter << " <- ";
-	std::cout << *iter << std::endl << "Shortest distance:\t" << ret1.second << std::endl << std::endl;
+		cout << *iter << " <- ";
+	cout << *iter << endl << "Shortest distance:\t" << ret1.second << endl << endl;
 
 	dims = ret2.first.size();
-	std::cout << "Shortest route:" << std::endl;
+	cout << "Shortest route:" << endl;
 	for (iter = ret2.first.begin(); i < dims - 1; ++i, ++iter)
-		std::cout << *iter << " <- ";
-	std::cout << *iter << std::endl << "Shortest distance:\t" << ret2.second << std::endl << std::endl;
+		cout << *iter << " <- ";
+	cout << *iter << endl << "Shortest distance:\t" << ret2.second << endl << endl;
 
 	dims = ret3.first.size();
-	std::cout << "Shortest route:" << std::endl;
+	cout << "Shortest route:" << endl;
 	for (iter = ret3.first.begin(); i < dims - 1; ++i, ++iter)
-		std::cout << *iter << " <- ";
-	std::cout << *iter << std::endl << "Shortest distance:\t" << ret3.second << std::endl << std::endl;
+		cout << *iter << " <- ";
+	cout << *iter << endl << "Shortest distance:\t" << ret3.second << endl << endl;
 
 	dims = ret4.first.size();
-	std::cout << "Shortest route:" << std::endl;
+	cout << "Shortest route:" << endl;
 	for (iter = ret4.first.begin(); i < dims - 1; ++i, ++iter)
-		std::cout << *iter << " <- ";
-	std::cout << *iter << std::endl << "Shortest distance:\t" << ret4.second << std::endl << std::endl;
+		cout << *iter << " <- ";
+	cout << *iter << endl << "Shortest distance:\t" << ret4.second << endl << endl;
 
 	dims = ret5.first.size();
-	std::cout << "Shortest route:" << std::endl;
+	cout << "Shortest route:" << endl;
 	for (iter = ret5.first.begin(); i < dims - 1; ++i, ++iter)
-		std::cout << *iter << " <- ";
-	std::cout << *iter << std::endl << "Shortest distance:\t" << ret5.second << std::endl << std::endl;
+		cout << *iter << " <- ";
+	cout << *iter << endl << "Shortest distance:\t" << ret5.second << endl << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_8()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 8 -- GreedyAlgorithm " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		 << " Demo for Chapter 8 -- GreedyAlgorithm " << endl
+		 << " =========================" << endl;
 
 	/* prepare data */
 	std::set<std::string> states_needed = { "mt", "wa", "or", "id", "nv", "ut", "ca", "az" };
@@ -274,22 +282,22 @@ void GrokkingAlgorithm::runDemoChapter_8()
 	std::set<std::string> ret = GrokkingAlgorithm::GreedyAlgorithm_Ch8(states_needed, stations);
 	if (!ret.empty())
 	{
-		std::cout << "Solution FOUND!" << std::endl;
+		cout << "Solution FOUND!" << endl;
 		for (auto &elem : ret)
-			std::cout << elem << ", ";
-		std::cout << std::endl << std::endl;
+			cout << elem << ", ";
+		cout << endl << endl;
 	}
 	else
-		std::cout << "No Solution!" << std::endl << std::endl;
+		cout << "No Solution!" << endl << endl;
 
 	return;
 }
 
 void GrokkingAlgorithm::runDemoChapter_9()
 {
-	std::cout << "\n =========================" << std::endl
-		<< " Demo for Chapter 9 -- Dynamic Programming " << std::endl
-		<< " =========================" << std::endl;
+	cout << "\n =========================" << endl
+		<< " Demo for Chapter 9 -- Dynamic Programming " << endl
+		<< " =========================" << endl;
 
 	/* Knapsack Problem */
 	int wt = 5;
@@ -298,12 +306,12 @@ void GrokkingAlgorithm::runDemoChapter_9()
 	{ "Laptop", { 3, 2000 } }, { "Iphone", { 1, 2000 } } };
 
 	std::pair<int, std::set<std::string>> ret = KnapsackProblem_Ch9(info, wt);
-	std::cout << "\nStealing things for value maximum" << std::endl
-		<< "The solution for Knapsack Problem with weight of " << wt << ":" << std::endl;
-	std::cout << "The maximum of value is:  $ " << ret.first << std::endl << "The optimal solution is:  ";
+	cout << "\nStealing things for value maximum" << endl
+		<< "The solution for Knapsack Problem with weight of " << wt << ":" << endl;
+	cout << "The maximum of value is:  $ " << ret.first << endl << "The optimal solution is:  ";
 	for (auto iter = ret.second.begin(); iter != ret.second.end(); ++iter)
-		std::cout << *iter << ", ";
-	std::cout << std::endl << std::endl;
+		cout << *iter << ", ";
+	cout << endl << endl;
 
 	int wt2 = 6;
 	std::map<std::string, std::pair<int, int>> info2
@@ -311,29 +319,29 @@ void GrokkingAlgorithm::runDemoChapter_9()
 	{ "Jacket", { 2, 5 } }, { "Camera", { 1, 6 } } };
 
 	std::pair<int, std::set<std::string>> ret2 = KnapsackProblem_Ch9(info2, wt2);
-	std::cout << "Taking things to travel for value maximum" << std::endl
-		<< "The solution for Knapsack Problem with weight of " << wt2 << ":" << std::endl;
-	std::cout << "The maximum of value is:  $ " << ret2.first << std::endl << "The optimal solution is:  ";
+	cout << "Taking things to travel for value maximum" << endl
+		<< "The solution for Knapsack Problem with weight of " << wt2 << ":" << endl;
+	cout << "The maximum of value is:  $ " << ret2.first << endl << "The optimal solution is:  ";
 	for (auto iter = ret2.second.begin(); iter != ret2.second.end(); ++iter)
-		std::cout << *iter << ", ";
-	std::cout << std::endl << std::endl;
+		cout << *iter << ", ";
+	cout << endl << endl;
 
 	/* Longest Common Substring */
 	std::string str1("fished"), str2("abfisabshezzishecaahed");
 	std::pair<int, std::string> lcs = GrokkingAlgorithm::LongestCommonSubstring_Ch9(str1, str2);
 
-	std::cout << "Find the Longest Common Substring" << std::endl;
-	std::cout << "Input two strings as : \"" << str1 << "\" & \"" << str2 << "\"" << std::endl;
-	std::cout << "The Longest Common Substring is:  \"" << lcs.second << "\"" << std::endl;
-	std::cout << "The length is :  " << lcs.first << std::endl << std::endl;
+	cout << "Find the Longest Common Substring" << endl;
+	cout << "Input two strings as : \"" << str1 << "\" & \"" << str2 << "\"" << endl;
+	cout << "The Longest Common Substring is:  \"" << lcs.second << "\"" << endl;
+	cout << "The length is :  " << lcs.first << endl << endl;
 
 	/* Longest Common Subsequence */
 	std::string str3("fosh"), str4("fish");
 	int len = GrokkingAlgorithm::LongestCommonSubsequence_Ch9(str3, str4);
 
-	std::cout << "Find the Longest Common Subsequence" << std::endl;
-	std::cout << "Input two strings as : \"" << str3 << "\" & \"" << str4 << "\"" << std::endl;
-	std::cout << "The length of Longest Common Substring is:  " << len << std::endl << std::endl;
+	cout << "Find the Longest Common Subsequence" << endl;
+	cout << "Input two strings as : \"" << str3 << "\" & \"" << str4 << "\"" << endl;
+	cout << "The length of Longest Common Substring is:  " << len << endl << endl;
 
 	return;
 }
