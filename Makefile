@@ -1,5 +1,5 @@
 MY_PROG=demo
-CC=gcc
+CC=cc
 CFLAGS = -Wall -g -std=c17
 
 CXX=c++
@@ -28,10 +28,18 @@ default: $(MY_PROG)
 
 all: clean $(MY_PROG)
 
-$(MY_PROG): GrokkingAlgorithm.o UtilsGrokkingAlgo.o
+$(MY_PROG): demo.o GrokkingAlgorithm.o UtilsGrokkingAlgo.o
+	@$(MD) $(BIN_DIR)
+	$(CXX) -o $(BIN_DIR)/$@ $(OBJ_DIR)/*.o
 
-%.o: %.c %.h
-	$(CC) $(CFLAGS) -c $< -o $@ 
+
+
+#%.o: %.c %.h ${OUT_DIRS}
+#	$(CC) $(CFLAGS) -c $< -o $@ 
+
+%.o: %.cpp %.h 
+	@$(MD) $(OBJ_DIR)
+	$(CXX) $(CPPFLAGS) -c $< -o $(OBJ_DIR)/$@ 
 
 .PHONY: clean run acho dirs
 clean:
@@ -41,7 +49,7 @@ clean:
 
 run: $(MY_PROG)
 	$(ECHO) "Running $(MY_PROG)"
-	@$(MY_PROG)
+	@$(BIN_DIR)/$(MY_PROG)
 
 echo:
 	$(ECHO) $(MKDIR)
