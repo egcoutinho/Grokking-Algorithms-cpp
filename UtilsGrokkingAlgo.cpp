@@ -23,9 +23,10 @@ using namespace std;
 //	return;
 //}
 
+/****************************************************************************
 int InBinarySearch(const int *array, int pos1, int pos2, int val)
 {
-	/* Binary Search for recursive computation */
+	// Binary Search for recursive computation
 	int pos = -1;
 	int j = (pos1 + pos2) / 2;
 
@@ -44,6 +45,7 @@ int InBinarySearch(const int *array, int pos1, int pos2, int val)
 
 	return pos;
 }
+****************************************************************************/
 
 void SelectionSort(int *array, int num)
 {
@@ -73,6 +75,7 @@ void SelectionSort(int *array, int num)
 
 	return;
 }
+
 
 void Merge(int *array, int num, int pos)
 {

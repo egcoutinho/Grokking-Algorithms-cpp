@@ -1,7 +1,10 @@
 #include <cstring>
 #include <climits>
+#include <iostream>
+#include <algorithm>
+
 #include "GrokkingAlgorithms.h"
-#include "UtilsGrokkingAlgo.h"
+//#include "UtilsGrokkingAlgo.h"
 
 using namespace std;
 
@@ -16,13 +19,13 @@ GrokkingAlgorithm::~GrokkingAlgorithm()
 }
 
 // ******************* CHAPTER 1
-int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int num, int item)
+int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int tamanho, int item)
 {
 	/* Binary Search
 	*
 	*  Params:
 	*		- lista, int pointer for an ascend-sorted array
-	*		- num, length of input array
+	*		- tamanho, length of input array
 	*		- item, value to be searched.
 	*
 	*  Out
@@ -30,14 +33,15 @@ int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int num, int item)
 	*/
 
 	/* recursive */
-	//return InBinarySearch(lista, 0, num - 1, val);
+	//return GrokkingAlgorithm::InBinarySearch(lista, 0, tamanho - 1, val);
 
 	/* loop */
-	int baixo = 0, pos2 = num - 1;
-	int pos = -1, meio;
-	while (baixo <= pos2)
+	int baixo = 0, alto = tamanho - 1;
+	int pos = -1;
+
+	while (baixo <= alto)
 	{
-		meio = (baixo + pos2) / 2;
+		int meio = (baixo + alto) / 2;
 		int chute = lista[meio];
 
 		if (item == chute)
@@ -46,9 +50,31 @@ int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int num, int item)
 			break;
 		}
 		else 
-			if (item < chute) pos2 = meio - 1;
+			if (item < chute) alto = meio - 1;
+			else 
+				if (item > chute) baixo = meio + 1;
+	}
+
+	return pos;
+}
+
+int GrokkingAlgorithm::InBinarySearch(const int *array, int posicao_inicio, int posicao_fim, int val)
+{
+	/* Binary Search for recursive computation */
+	int pos = -1;
+	int meio = (posicao_inicio + posicao_fim) / 2;
+
+	if (posicao_inicio > posicao_fim);
+	else
+	{
+		if (val == array[meio])
+			pos = meio;
 		else 
-			if (item > chute) baixo = meio + 1;
+			if (val < array[meio]) 
+				pos = InBinarySearch(array, posicao_inicio, meio - 1, val);
+			else 
+				if (val > array[meio])
+					pos = InBinarySearch(array, meio + 1, posicao_fim, val);
 	}
 
 	return pos;
@@ -57,21 +83,23 @@ int GrokkingAlgorithm::Pesquisa_Binaria_Ch1(const int *lista, int num, int item)
 void GrokkingAlgorithm::runDemoChapter_1()
 {
 	// ========= demo Chapter 1 -- Binary Search =========
-	int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+	//int array[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+	int array[] = { 1, 3, 5, 7, 9 };
+	int tamanho = sizeof(array)/sizeof(int);
 
 	cout << "\n =========================" << endl
 		 <<   " Demo for Chapter 1 -- Binary Search " << endl
 		 <<   " =========================" << endl;
 
 	cout << "Original Data : " << endl;
-	PrintData(array, 12);
+	PrintData(array, tamanho);
 
 	cout << "Input an integer for search: " << endl;
 
 	int val = 0;
 	cin >> val;
 
-	cout << "search result: " << GrokkingAlgorithm::Pesquisa_Binaria_Ch1(array, 12, val) << endl << endl;
+	cout << "search result: " << GrokkingAlgorithm::Pesquisa_Binaria_Ch1(array, tamanho, val) << endl << endl;
 
 	return;
 }
@@ -489,8 +517,38 @@ void GrokkingAlgorithm::MergeSort_Ch4(int *array, int num)
 	int pos = num / 2;
 	MergeSort_Ch4(array, pos);
 	MergeSort_Ch4(&array[pos], num - pos);
-	Merge(array, num, pos);
+	GrokkingAlgorithm::Merge(array, num, pos);
 
+	return;
+}
+
+void GrokkingAlgorithm::Merge(int *array, int num, int pos)
+{
+	/*
+	* function for Merge Sort
+	*
+	* merge two arrays | [0, pos) & [pos, num)
+	*/
+
+	int *newArray = (int *)malloc(num * sizeof(int));
+
+	int i = 0, j = pos, k = 0;
+
+	while ((i != pos) && (j != num))
+	{
+		if (array[i] < array[j])
+			newArray[k++] = array[i++];
+		else
+			newArray[k++] = array[j++];
+	}
+
+	while (i != pos)
+		newArray[k++] = array[i++];
+	while (j != num)
+		newArray[k++] = array[j++];
+
+	memcpy(array, newArray, num * sizeof(int));
+	free(newArray);
 	return;
 }
 
@@ -824,6 +882,25 @@ std::pair<std::vector<std::string>, int> GrokkingAlgorithm::Dijkstra_Ch7(std::ma
 
 	return ret;
 }
+
+map<string, int>::iterator GrokkingAlgorithm::find_lowest_cose_node(map <string, int> &cost, map<string, int> &counter)
+{
+	map<string, int>::iterator iter = cost.begin(), ret = cost.end();
+	int minCost = INT_MAX;
+
+	while (iter != cost.end())
+	{
+		if (iter->second <= minCost  && counter[iter->first] == 0)
+		{
+			ret = iter;
+			minCost = iter->second;
+		}
+		++iter;
+	}
+
+	return ret;
+}
+
 
 // ******************* CHAPTER 8
 std::set<std::string> GrokkingAlgorithm::GreedyAlgorithm_Ch8(std::set<std::string> &states_needed, std::map<std::string, std::set<std::string>> &stations)

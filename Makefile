@@ -12,7 +12,6 @@ OUT_DIRS = $(OBJ_DIR) $(BIN_DIR)
 ECHO = @echo
 MD = mkdir -p
 
-
 # Search for dependencies and targets from "src" and "include" directories
 # The directories are separated by space
 #VPATH = obj src include
@@ -30,11 +29,9 @@ default: $(MY_PROG)
 
 all: clean $(MY_PROG)
 
-$(MY_PROG): demo.o GrokkingAlgorithms.o UtilsGrokkingAlgo.o
+$(MY_PROG): demo.o GrokkingAlgorithms.o # UtilsGrokkingAlgo.o
 	@$(MD) $(BIN_DIR)
 	$(CXX) -o $(BIN_DIR)/$@ $(OBJ_DIR)/*.o
-
-
 
 #%.o: %.c %.h ${OUT_DIRS}
 #	$(CC) $(CFLAGS) -c $< -o $@ 
